@@ -3,22 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
-import { TemplateDrivenFormComponent } from './form/template-driven-form/template-driven-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+import { GeneralRoutingModule } from './general/general-routing.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,    
-    TemplateDrivenFormComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    AuthModule,
+    FormsModule,
+    HttpClientModule,
+    AuthRoutingModule,
+    GeneralRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[FormsModule]
 })
 export class AppModule { }
